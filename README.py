@@ -7,5 +7,5 @@
 #git checkout KaurBranch -- viib koodi uuele branchile
 #git push --set-upstream origin KaurBranch -- uus branch githubi
 
-#git checkout main
+#git checkout main(main)
 #git merge <branch name>
