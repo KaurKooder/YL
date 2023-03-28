@@ -11,7 +11,6 @@ def main():
     bot = pg.image.load("capu2.png").convert_alpha()
     bot = pg.transform.scale(bot, (50, 50))
 
-
     running = True
 
     x = 0
@@ -24,6 +23,7 @@ def main():
             if event.type == pg.QUIT:
                 running = False
 
+        rect = player.get_rect(center=(320, 240))
         if xT <= 200:
             xT = 1100
 
@@ -31,11 +31,13 @@ def main():
             if event.key == pg.K_RIGHT:
                 x += 1
             if event.key == pg.K_LEFT:
-                 x -= 1
+                x -= 1
             if event.key == pg.K_DOWN:
                 y += 1
             if event.key == pg.K_UP:
-                y -= 1
+                player= pg.transform.rotate(player, 1)
+
+
 
         xT -= 0.1
 

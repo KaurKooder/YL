@@ -4,7 +4,7 @@ def main():
     pg.init()
     screen = pg.display.set_mode((1200, 600))
     screen.fill((0, 0, 0))
-    player = pg.image.load("pilt\capu.png").convert_alpha()
+    player = pg.image.load("capu.png").convert_alpha()
 
     running=True
     x=0
