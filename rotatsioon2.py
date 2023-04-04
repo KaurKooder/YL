@@ -11,13 +11,13 @@ def rotate(image, rect, angle):
 
 
 def main():
-    clock = pg.time.Clock()
+   # clock = pg.time.Clock()
     screen = pg.display.set_mode((640, 480))
     gray = pg.Color('gray15')
     blue = pg.Color('dodgerblue2')
 
     image = pg.Surface((320, 200), pg.SRCALPHA)
-    pg.draw.polygon(image, blue, ((0, 0), (320, 100), (0, 200)))
+    pg.draw.polygon(image, blue, ((0, 0), (320, 100), (0, 600)))
     # Keep a reference to the original to preserve the image quality.
     orig_image = image
     rect = image.get_rect(center=(320, 240))
@@ -35,7 +35,7 @@ def main():
         screen.fill(gray)
         screen.blit(image, rect)
         pg.display.flip()
-        clock.tick(30)
+        #clock.tick(30)
 
 
 if __name__ == '__main__':
