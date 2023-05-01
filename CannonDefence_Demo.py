@@ -54,13 +54,13 @@ pg.draw.rect(ARROW_IMAGE, pg.Color('brown'), (5, 4, 50, 3))
 pg.draw.polygon(ARROW_IMAGE, pg.Color('white'), [(40,0), (60, 5), (40, 10)])
 #haavel
 HAAVEL_IMAGE = pg.Surface((30, 70), pg.SRCALPHA)
-pg.draw.rect(HAAVEL_IMAGE, pg.Color('black'), (randint(0,30), randint(0,70), 2, 2))
-pg.draw.rect(HAAVEL_IMAGE, pg.Color('black'), (randint(0,30), randint(0,70), 2, 2))
-pg.draw.rect(HAAVEL_IMAGE, pg.Color('black'), (randint(0,30), randint(0,70), 2, 2))
-pg.draw.rect(HAAVEL_IMAGE, pg.Color('black'), (randint(0,30), randint(0,70), 2, 2))
-pg.draw.rect(HAAVEL_IMAGE, pg.Color('black'), (randint(0,30), randint(0,70), 2, 2))
-pg.draw.rect(HAAVEL_IMAGE, pg.Color('black'), (randint(0,30), randint(0,70), 2, 2))
-pg.draw.rect(HAAVEL_IMAGE, pg.Color('black'), (randint(0,30), randint(0,70), 2, 2))
+pg.draw.rect(HAAVEL_IMAGE, pg.Color('black'), (randint(0, 30), randint(0, 70), 2, 2))
+pg.draw.rect(HAAVEL_IMAGE, pg.Color('black'), (randint(0, 30), randint(0, 70), 2, 2))
+pg.draw.rect(HAAVEL_IMAGE, pg.Color('black'), (randint(0, 30), randint(0, 70), 2, 2))
+pg.draw.rect(HAAVEL_IMAGE, pg.Color('black'), (randint(0, 30), randint(0, 70), 2, 2))
+pg.draw.rect(HAAVEL_IMAGE, pg.Color('black'), (randint(0, 30), randint(0, 70), 2, 2))
+pg.draw.rect(HAAVEL_IMAGE, pg.Color('black'), (randint(0, 30), randint(0, 70), 2, 2))
+pg.draw.rect(HAAVEL_IMAGE, pg.Color('black'), (randint(0, 30), randint(0, 70), 2, 2))
 
 
 ENEMY_IMAGE = pg.Surface((40, 40), pg.SRCALPHA)
@@ -266,21 +266,21 @@ def mangusisene_menu():
 
             elif event.type == pg.MOUSEBUTTONDOWN:
                     if buttons[3][1].collidepoint(event.pos):
-                        if raha > 2:
+                        if raha >= 2:
                             ammu += 40
                             raha -= 2
                     elif buttons[0][1].collidepoint(event.pos):
-                        if raha > 10:
+                        if raha >= 10:
                             raha -= 10
                             listiindeks = 0
                             listiindeks += 1
                     elif buttons[1][1].collidepoint(event.pos):
-                        if raha > 20:
+                        if raha >= 20:
                             listiindeks = 0
                             listiindeks += 2
                             raha -= 20
                     elif buttons[2][1].collidepoint(event.pos):
-                        if raha > 50:
+                        if raha >= 50:
                             listiindeks = 0
                             listiindeks += 3
                             raha -= 50
@@ -292,6 +292,9 @@ def mangusisene_menu():
             for text, rect, color in buttons:
                 pg.draw.rect(screen, color, rect)
                 screen.blit(text, rect)
+            # menuu sisene raha naidik
+            naidik = FONT.render('raha {:.1f}'.format(raha), True, 'palegreen4')
+            screen.blit(naidik, (20, 10))
 
 
             pg.display.flip()
@@ -388,7 +391,7 @@ def main():
                         spawnratemuutuja += 0.1
                         spawnratemuutuja1 += 0
                         vastaseidlastud += 1
-                        raha += 0.2
+                        raha += 0.5
 
         bullet_group.update()
         # Find angle to target (mouse pos).
@@ -434,8 +437,6 @@ def main():
         pg.display.update()
 
         clock.tick(60)
-
-#if __name__ == '__main__':
 menu()
 main()
 pg.quit()
